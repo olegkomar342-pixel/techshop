@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Әкімші панелі — TechShop</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main>
+    <div class="container" id="admin-root">
+      <h1>Әкімші панелі</h1>
+      <div class="tabs">
+        <button type="button" class="active" data-tab="orders">Тапсырыстар</button>
+        <button type="button" data-tab="products">Тауарлар</button>
+        <button type="button" data-tab="categories">Санаттар</button>
+      </div>
+
+      <div class="stats" id="stats"></div>
+
+      <!-- Тапсырыстар -->
+      <section id="tab-orders">
+        <div class="toolbar">
+          <select id="order-filter" aria-label="Күй бойынша сүзгі">
+            <option value="">Барлық күйлер</option>
+          </select>
+        </div>
+        <div class="panel table-wrap">
+          <table>
+            <thead><tr>
+              <th>№</th><th>Күні</th><th>Сатып алушы</th><th>Тауарлар</th><th class="num">Сома</th><th>Күйі</th>
+            </tr></thead>
+            <tbody id="orders-body"><tr><td colspan="6" class="loading">Жүктелуде...</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Тауарлар -->
+      <section id="tab-products" class="hidden">
+        <div class="toolbar">
+          <input type="search" id="product-search" placeholder="Атауы бойынша іздеу..." style="max-width:320px">
+          <button class="btn" id="new-product">+ Жаңа тауар</button>
+        </div>
+        <div class="panel table-wrap">
+          <table>
+            <thead><tr>
+              <th>ID</th><th>Атауы</th><th>Санат</th><th class="num">Баға</th><th class="num">Қалдық</th><th>Күйі</th><th></th>
+            </tr></thead>
+            <tbody id="products-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Санаттар -->
+      <section id="tab-categories" class="hidden">
+        <div class="cart-layout">
+          <div class="panel table-wrap">
+            <table>
+              <thead><tr><th>ID</th><th>Атауы</th><th>Slug</th><th>Ата-санат</th><th class="num">Тауар</th><th></th></tr></thead>
+              <tbody id="categories-body"></tbody>
+            </table>
+          </div>
+          <form class="panel" id="category-form" novalidate>
+            <h3>Жаңа санат</h3>
+            <div class="field"><label for="c-name">Атауы</label><input id="c-name" name="name" required></div>
+            <div class="field"><label for="c-slug">Slug (латынша)</label><input id="c-slug" name="slug" placeholder="smart-watches" required></div>
+            <div class="field"><label for="c-parent">Ата-санат</label><select id="c-parent" name="parent_id"></select></div>
+            <button class="btn block" type="submit">Қосу</button>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Тауарды қосу / өңдеу терезесі -->
+  <dialog id="product-dialog">
+    <form id="product-form" novalidate>
+      <h2 id="product-dialog-title">Тауар</h2>
+      <input type="hidden" name="id">
+      <div class="field"><label for="f-name">Атауы</label><input id="f-name" name="name" required></div>
+      <div class="field"><label for="f-category">Санат</label><select id="f-category" name="category_id"></select></div>
+      <div class="row">
+        <div class="field"><label for="f-price">Бағасы, ₸</label><input id="f-price" name="price" type="number" min="0" step="0.01" required></div>
+        <div class="field"><label for="f-stock">Қалдық, дана</label><input id="f-stock" name="stock" type="number" min="0" step="1" required></div>
+      </div>
+      <div class="field"><label for="f-image">Сурет сілтемесі (URL)</label><input id="f-image" name="image_url" placeholder="https://..."></div>
+      <div class="field"><label for="f-desc">Сипаттамасы</label><textarea id="f-desc" name="description" rows="4"></textarea></div>
+      <div class="field"><label class="checkbox"><input type="checkbox" name="is_active"> Каталогта көрсету</label></div>
+      <div class="dialog-actions">
+        <button type="button" class="btn secondary" id="product-cancel">Болдырмау</button>
+        <button type="submit" class="btn">Сақтау</button>
+      </div>
+    </form>
+  </dialog>
+
+  <footer id="site-footer"></footer>
+  <script src="js/app.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

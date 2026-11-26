@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Жеке кабинет — TechShop</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main>
+    <div class="container">
+      <h1>Жеке кабинет</h1>
+      <div class="tabs">
+        <button type="button" class="active" data-tab="orders">Менің тапсырыстарым</button>
+        <button type="button" data-tab="profile">Профиль</button>
+      </div>
+
+      <section id="tab-orders">
+        <div id="orders"><div class="loading">Жүктелуде...</div></div>
+      </section>
+
+      <section id="tab-profile" class="hidden">
+        <form id="profile-form" class="panel" style="max-width:520px" novalidate>
+          <div class="field">
+            <label>Email</label>
+            <input name="email" disabled>
+          </div>
+          <div class="field">
+            <label for="p-name">Аты-жөні</label>
+            <input id="p-name" name="full_name" required>
+          </div>
+          <div class="field">
+            <label for="p-phone">Телефон</label>
+            <input id="p-phone" name="phone" type="tel">
+          </div>
+          <h3 style="margin-top:20px">Құпиясөзді ауыстыру</h3>
+          <p class="small muted">Ауыстырмасаңыз, бос қалдырыңыз.</p>
+          <div class="field">
+            <label for="p-cur">Ағымдағы құпиясөз</label>
+            <input id="p-cur" name="current_password" type="password" autocomplete="current-password">
+          </div>
+          <div class="field">
+            <label for="p-new">Жаңа құпиясөз</label>
+            <input id="p-new" name="new_password" type="password" autocomplete="new-password">
+          </div>
+          <button class="btn" type="submit">Сақтау</button>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="js/app.js"></script>
+  <script src="js/account.js"></script>
+</body>
+</html>

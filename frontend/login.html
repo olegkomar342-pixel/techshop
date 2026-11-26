@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кіру — TechShop</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main>
+    <div class="container">
+      <div class="auth-box panel">
+        <div class="tabs">
+          <button type="button" class="active" data-tab="login">Кіру</button>
+          <button type="button" data-tab="register">Тіркелу</button>
+        </div>
+
+        <form id="login-form" novalidate>
+          <div class="field">
+            <label for="login-email">Email</label>
+            <input id="login-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="login-password">Құпиясөз</label>
+            <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+          </div>
+          <button class="btn block" type="submit">Кіру</button>
+          <div class="hint">
+            Сынақ аккаунты (сатып алушы):<br>
+            <code>aruzhan@mail.kz</code> / <code>password123</code><br>
+            Немесе «Тіркелу» арқылы жаңа аккаунт ашыңыз.
+          </div>
+        </form>
+
+        <form id="register-form" class="hidden" novalidate>
+          <div class="field">
+            <label for="reg-name">Аты-жөні</label>
+            <input id="reg-name" name="full_name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="reg-email">Email</label>
+            <input id="reg-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="reg-phone">Телефон <span class="muted">(міндетті емес)</span></label>
+            <input id="reg-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 700 000 00 00">
+          </div>
+          <div class="field">
+            <label for="reg-password">Құпиясөз</label>
+            <input id="reg-password" name="password" type="password" autocomplete="new-password" minlength="6" required>
+            <div class="small muted">Кемінде 6 таңба</div>
+          </div>
+          <button class="btn block" type="submit">Тіркелу</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="js/app.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>
