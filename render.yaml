@@ -1,0 +1,16 @@
+# Render Blueprint: сайтты бір батырмамен орналастыру (Dashboard → New → Blueprint).
+# Дерекқор — Neon (тегін, мерзімі өтпейді); оның сілтемесін DATABASE_URL-ге қойыңыз.
+services:
+  - type: web
+    name: techshop
+    runtime: docker
+    plan: free
+    region: frankfurt
+    healthCheckPath: /           # дерекқорға тимейтін тексеру (Neon лимитін үнемдейді)
+    envVars:
+      - key: DATABASE_URL      # Neon → Connection string (postgresql://...sslmode=require)
+        sync: false
+      - key: ADMIN_PASSWORD    # admin@shop.kz үшін жаңа құпиясөз (кемінде 8 таңба)
+        sync: false
+      - key: JWT_SECRET        # Render өзі кездейсоқ мән жасайды
+        generateValue: true
